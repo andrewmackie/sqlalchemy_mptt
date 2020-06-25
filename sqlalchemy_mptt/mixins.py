@@ -97,7 +97,7 @@ class BaseNestedSets(object):
             remote_side="{}.{}".format(self.__name__, self.get_pk_name()),
             backref=backref(
                 "children",
-                cascade="all,delete",
+                cascade="all,save-update,delete",
                 order_by=lambda: (self.tree_id, self.left),
             ),
         )
